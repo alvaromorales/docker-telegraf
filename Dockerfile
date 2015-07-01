@@ -26,10 +26,10 @@ ENV SWAP_PLUGIN **True**
 ENV SYSTEM_PLUGIN **True**
 
 ADD build.sh /build.sh
+ADD run.sh /run.sh
 ADD generate_config.go /generate_config.go
 ADD telegraf.toml.tmp /telegraf.toml.tmp
 
-RUN chmod +x /build.sh
 RUN /build.sh
 
-CMD ["/opt/influxdb/telegraf", "-config", "/telegraf.toml"]
+CMD ["/run.sh"]
